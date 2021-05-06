@@ -44,4 +44,4 @@ for t in range(T):
     res = min(li)
     #min(배열) -> 배열 안의 값 중 가장 작은 값을 반환
     print("{:.2f}".format(res))
-    pass
+ 
