@@ -1,0 +1,47 @@
+import java.io.*;
+
+class Solution
+{
+	public static void main(String args[]) throws Exception
+	{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		int T = Integer.parseInt(br.readLine());
+        
+		for(int test_case = 1; test_case <= T; test_case++)
+		{
+            int N = Integer.parseInt(br.readLine());
+           	int[][] field = new int[N][N];
+            
+            for(int i=0; i<N; i++){
+                String line = br.readLine();
+                for(int j=0; j<N; j++){
+                    field[i][j] = line.charAt(j)-48;
+                }
+            }
+                
+            int start = N/2;
+            int end = N/2;
+            int result = 0;
+            for(int i=0; i<N; i++){
+                for(int j=start; j<=end; j++){
+                    result += field[i][j];
+                }
+                if(i<N/2){
+                    start --;
+                    end++;
+                }else{
+                    start ++;
+                    end--;
+                }
+            }
+            
+            bw.write("#"+test_case+" "+result);
+            bw.newLine();
+		}
+        bw.flush();
+        bw.close();
+        br.close();
+	}
+}
