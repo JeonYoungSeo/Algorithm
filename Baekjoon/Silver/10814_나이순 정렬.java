@@ -1,7 +1,7 @@
 /**
  * Author : YoungSeo Jeon
  * Date : 2021-08-12
- * Description : 백준 11650
+ * Description : 백준 10814
  */
 
 import java.io.BufferedReader;
