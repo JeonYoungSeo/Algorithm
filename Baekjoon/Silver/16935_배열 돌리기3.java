@@ -1,10 +1,8 @@
-package prac;
-
 import java.util.*;
 import java.io.*;
 
 
-public class Main2 {
+public class Main {
 	static int[][] arr;
 	static int N,M;
 	public static void main(String[] args) throws IOException {
@@ -17,17 +15,21 @@ public class Main2 {
 		M = Integer.parseInt(st.nextToken());
 		st.nextToken();
 		
+		//N*M배열 생성
 		arr = new int[N][M];
 		
+		
+		//원래 배열 입력
 		for(int i=0; i<N; i++) {
 			st = new StringTokenizer(br.readLine());
 			for(int j=0; j<M; j++) {
 				arr[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-		
+
+		//연산 입력
 		st = new StringTokenizer(br.readLine());
-		
+		//연산이 없을때 까지 반복
 		while(st.hasMoreTokens()) {
 			int temp = Integer.parseInt(st.nextToken());
 			
@@ -55,7 +57,7 @@ public class Main2 {
 			
 		}
 		
-		
+		//최종 배열 출력
 		for(int[] line : arr) {
 			for(int num : line) {
 				bw.write(num+" ");
@@ -89,11 +91,11 @@ public class Main2 {
 	}
 	//오른쪽으로 90도
 	private static void rightdegree() {
-		
+		//그냥 N과 M을 바꿔줫으면 됫엇습니다 ㅠㅠ..
 		int y = arr[0].length; 
 		int x = arr.length;
-		int[][] arr_temp = new int[y][x];
-		
+		int[][] arr_temp = new int[y][x]; //임시 배열 생성
+		//오른쪽으로 90도
 		for(int i=0; i<x; i++) {
 			for(int j=0; j<y; j++) {
 				arr_temp[j][x-1-i] = arr[i][j] ;
@@ -122,7 +124,6 @@ public class Main2 {
 		int y = arr.length;
 		
 		int[][] arr_temp = new int[y][x];
-		
 		
 		//1번을 2번으로
 		for(int i=0; i<y/2; i++) {
