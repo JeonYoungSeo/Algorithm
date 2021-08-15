@@ -10,7 +10,7 @@ public class Main {
 		
 		int N = Integer.parseInt(br.readLine()); // N
 		
-		int result = fibo(N);
+		int result = facto(N);
 			
 		bw.write(result+" ");
 
@@ -19,7 +19,7 @@ public class Main {
 		br.close();
 	}
 
-	private static int fibo(int n) {
+	private static int facto(int n) {
 		if(n==0) return 0; 
 				
 		int result = 0;
@@ -29,6 +29,6 @@ public class Main {
 			result ++;
 		}
 		
-		return result + fibo(n-1);
+		return result + facto(n-1);
 	}
 }
