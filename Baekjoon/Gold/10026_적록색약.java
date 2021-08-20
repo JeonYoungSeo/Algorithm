@@ -10,8 +10,9 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main{
-	static char[][] pic1, pic2;
-	static int count_n=0, count_ab = 0 ,N;
+	
+	static char[][] pic1, pic2;//정상인,색약을 위한 그림
+	static int count_n=0, count_ab = 0 ,N;//정상인,색약 따로 카운트
 	
     public static void main(String[] args) throws IOException {
     	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,22 +21,23 @@ public class Main{
         
         pic1 = new char[N][N];
         pic2 = new char[N][N];
-        
+        //입력
         for(int i=0; i<N; i++) {
         	String str  = br.readLine();
         	for(int j=0; j<N; j++) {
         		pic1[i][j] = pic2[i][j] = str.charAt(j);
-        		
+        		//색약은 R과 G를 구분 못한다.	
         		if(pic2[i][j] == 'G') pic2[i][j] = 'R';
         	}
         }
         for(int i=0; i<N; i++) {
         	for(int j=0; j<N; j++) {
-        		
+        		//정상
         		if(pic1[i][j] != 'x') {
         			count_n ++;
         			divideArea(pic1,pic1[i][j],i,j);
         		}
+			//색약
         		if(pic2[i][j] != 'x') {
         			count_ab++;
         			divideArea(pic2,pic2[i][j],i,j);
@@ -48,6 +50,7 @@ public class Main{
         
     static int[] move_y = {1,0,-1,0};
     static int[] move_x = {0,-1,0,1};
+	//인접 부분 x로 만듬
     private static void divideArea(char[][] pic,char color,int y, int x) {
     	for(int i=0; i<4; i++) {
     		pic[y][x]='x';
