@@ -1,6 +1,6 @@
 /**
  * Author : YoungSeo Jeon
- * Date : 2021-08-12
+ * Date : 2021-08-20
  * Description : 백준 1927
  */
 
