@@ -49,6 +49,8 @@ public class Solution {
 			if(visited[i]==true) continue;
 			//거리 더해주기
 			int temp = Math.abs(pos[c_num][0]-pos[i][0])+Math.abs(pos[c_num][1]-pos[i][1]);
+			//최소거리를 구할거니 최소거리보다 길어지면 종료.
+			if(dis>=min_dis) return;
 			dis += temp;
 			visited[i] = true;
 			visit(i, dis,num+1);
