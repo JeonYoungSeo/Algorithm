@@ -22,24 +22,27 @@ public class Main{
         	for(int i =0; i<broke; i++) 
         		broken[Integer.parseInt(st.nextToken())] = true;
         }
-        if(channel<104 && channel>99) {
+	 
+        if(channel<104 && channel>99) {//해당범위일땐 -하는게 최소값
         	min_count = channel-100;
-        }else if(channel>97 && channel <100) {
+        }else if(channel>97 && channel <100) {//해당 범위일땐 +하는게 최솟값
         	min_count = 100-channel;
-        }else if (broke==10){
+        }else if (broke==10){//버튼을 사용할수 없을때에는 +,-로만 이동해야한다.
         	min_count = (int)Math.abs(channel-100); 
         }
         else {
-        	min_count = (int)Math.abs(channel-100);
-        	int channel3;
-            int channel2 = channel3 = channel;
-            String ch2;
-            String ch3;
-            int p=0;
+	    // +,-버튼만 눌럿을때보단 적게 나와야겠지 ? 
+	    min_count = (int)Math.abs(channel-100);
+	    int channel3;
+	    int channel2 = channel3 = channel; // +할대와 -할때 따로 구함
+	    String ch2;
+	    String ch3;
+            int p=0; //+,- 버튼 몇번 눌럿는지
             while(true) {
             	ch2 = Integer.toString(channel2+p);
             	
             	boolean check2= false,check3=true;
+		//누를수없는 버튼 하나라도 있으면 넘어가자
             	for(int i=0; i<ch2.length(); i++) {
             		if(broken[ch2.charAt(i)-'0']) 
             			check2 = true;
