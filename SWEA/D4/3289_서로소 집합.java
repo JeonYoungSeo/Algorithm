@@ -62,14 +62,15 @@ public class Main{
 			
 			for(int i=0; i<M; i++) {
 				st = new StringTokenizer(br.readLine());
+				//합의 연산인지 출력인지 , 첫번째 원소, 두번째 원소
 				int c = Integer.parseInt(st.nextToken());
 				int a = Integer.parseInt(st.nextToken());
 				int b = Integer.parseInt(st.nextToken());
 				
-				
+				//합하기
 				if(c==0) {
 					union(a,b);
-				}else {
+				}else { //출력부분
 					int aRoot = find(a);
 					int bRoot = find(b);
 					if(aRoot==bRoot)
