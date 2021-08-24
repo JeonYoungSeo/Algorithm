@@ -13,6 +13,7 @@ import java.util.StringTokenizer;
  */
 
 public class Main{
+	//간선 정보를 저장할 노드
 	public static class Node{
 		int end,weight;
 		Node link;
@@ -28,13 +29,13 @@ public class Main{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		
+		//정점의 갯수, 간선의 갯수, 시작지점
 		int V = Integer.parseInt(st.nextToken())+1;
 		int E = Integer.parseInt(st.nextToken());
 		int start = Integer.parseInt(br.readLine());
-		
+		//노드를 저장할 노드 리스트 생성
 		Node[] lst = new Node[V];
-		
+		// 입력
 		for(int i=0; i<E; i++) {
 			st = new StringTokenizer(br.readLine());
 			int u = Integer.parseInt(st.nextToken());
@@ -44,11 +45,11 @@ public class Main{
 			lst[u] = new Node(v,w,lst[u]);
 		}
 		
-		
+		//거리 초기화
 		int distance[] = new int[V];
 		Arrays.fill(distance, Integer.MAX_VALUE);
 		distance[start] = 0;
-		
+		//방문 여부 배열
 		boolean visited[] = new boolean[V];
 		for(int i=1; i<V; i++) {
 			
@@ -71,12 +72,9 @@ public class Main{
 				if(!visited[node.end] && distance[node.end]>min+node.weight) {
 					distance[node.end] = min+node.weight;
 				}
-				
 			}
-			
-			
 		}
-		
+		//출력		
 		for(int i=1; i<V; i++) {
 			if(distance[i]==Integer.MAX_VALUE){
 				System.out.println("INF");
