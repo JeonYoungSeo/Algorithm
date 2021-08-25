@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 /**
  * Author : YoungSeo Jeon
  * Date : 2021-08-25
- * Description : 백준 11724
+ * Description : 백준 2606
  */
 
 public class Main{
