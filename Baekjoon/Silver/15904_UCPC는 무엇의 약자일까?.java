@@ -17,7 +17,7 @@ public class Main{
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
 		String str = br.readLine();
-		
+		//UCPC가 순서대로 '존재하는지'만 보면 된다.
 		char[] result = {'U','C','P','C'};
 		int chk = 0;
 		
