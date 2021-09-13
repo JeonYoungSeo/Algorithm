@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 /**
  * Author : YoungSeo Jeon
  * Date : 2021-09-13
- * Description : 백준 15666
+ * Description : 백준 15663
  */
 
 public class Main{
