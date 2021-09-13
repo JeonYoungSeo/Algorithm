@@ -14,8 +14,6 @@ import java.util.StringTokenizer;
 public class Main{
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static int M, N ;
-	static int[] arr;
-	static boolean[] visited;
 	public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
@@ -23,13 +21,9 @@ public class Main{
         
         M = Integer.parseInt(st.nextToken());
         N = Integer.parseInt(st.nextToken());
-        arr = new int[M];
-        visited = new boolean[M];
-        for(int i=0; i<M; i++) 
-        	arr[i] = i+1;
         
         StringBuilder sb = new StringBuilder();
-		permutation(sb,0,1);
+	permutation(sb,0,1);
         
         bw.flush();
         br.close();
