@@ -15,7 +15,6 @@ import java.util.StringTokenizer;
 
 
 public class Main{
-	static int C,R;
   //k의 사용 이유 : 벽 뿌수엇을때 안부쉇을때 방문 배열을 달리 쓰기 
 	public static class Person{
 		int y,x,k;
