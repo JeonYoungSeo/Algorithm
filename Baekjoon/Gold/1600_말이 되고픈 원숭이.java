@@ -15,8 +15,6 @@ import java.util.StringTokenizer;
 
 
 public class Main{
-	static int C,R;
-	
   //원숭이 객체 = 좌표와 말처럼뛸수있는 횟수
 	public static class Monkey{
 		int y,x,k;
