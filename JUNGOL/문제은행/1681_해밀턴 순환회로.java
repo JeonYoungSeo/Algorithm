@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 
 /**
  * Author : YoungSeo Jeon
- * Date : 2021-09-17
+ * Date : 2021-09-23
  * Description : JUNGOL 1681
  */
 
@@ -43,6 +43,7 @@ public class Main{
 	
 	static int result = 987654321;
 	public static void func(int curr, int cnt, int costs) {
+		//이미 최저를 넘었으면 탈출
 		if(costs>=result) return;
 		
 		if(cnt==N-1) {
