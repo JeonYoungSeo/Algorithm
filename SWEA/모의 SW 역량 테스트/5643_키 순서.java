@@ -1,5 +1,3 @@
-package prac;
-	
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -11,7 +9,7 @@ import java.util.StringTokenizer;
 /**
  * Author : YoungSeo Jeon
  * Date : 2021-09-29
- * Description : 백준
+ * Description : SWEA 5643
  */
 
 
