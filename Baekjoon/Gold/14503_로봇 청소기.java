@@ -7,27 +7,27 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+        //N M 입력
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-
+        //맵 생성
         int[][] map = new int[N][M];
-
+        //r c d입력
         st = new StringTokenizer(br.readLine());
 
         int r = Integer.parseInt(st.nextToken());
         int c = Integer.parseInt(st.nextToken());
         int d = Integer.parseInt(st.nextToken());
-
+        //맵 입력
         for(int i=0; i<N; i++){
             st = new StringTokenizer(br.readLine());
             for(int j=0; j<M; j++){
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-
+        //정답
         int result = 0;
 
         //0 = 빈 공간, 1 = 벽, 2 = 청소한 곳
