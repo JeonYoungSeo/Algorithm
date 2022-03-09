@@ -1,0 +1,99 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Main {
+    public static class Node {
+        int num ;
+        Node next;
+
+        Node(int num, Node next){
+            this.num = num;
+            this.next = next;
+        }
+    }
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int T = Integer.parseInt(br.readLine());
+        out :
+        while(T-->0){
+            StringTokenizer st = new StringTokenizer(br.readLine());
+
+            int N = Integer.parseInt(st.nextToken());
+            int K = Integer.parseInt(st.nextToken());
+
+            st = new StringTokenizer(br.readLine());
+            int time[] = new int[N+1];
+            for(int i=1; i<=N; i++){
+                time[i] = Integer.parseInt(st.nextToken());
+            }
+
+            int cnt[] = new int[N+1];
+            Node[] nodes = new Node[N+1];
+            Node[] root = new Node[N+1];
+            boolean[] able = new boolean[N+1];
+            for(int i=0; i<K; i++){
+                st = new StringTokenizer(br.readLine());
+
+                int need = Integer.parseInt(st.nextToken());
+                int build = Integer.parseInt(st.nextToken());
+
+                cnt[build]++;
+                nodes[need] = new Node(build, nodes[need]);
+                root[build] = new Node(need, root[build]);
+            }
+
+            Queue<int[]> que = new LinkedList<>();
+
+            int find = Integer.parseInt(br.readLine());
+            int result = 0;
+
+            Queue<Integer> que2 = new LinkedList<>();
+            que2.add(find);
+
+            while(!que2.isEmpty()){
+                int curr = que2.poll();
+                able[curr]=true;
+                for(Node c = root[curr]; c!=null; c=c.next){
+                    if(!able[c.num])
+                        que2.add(c.num);
+                }
+            }
+
+            for(int i=1; i<=N; i++){
+                if(cnt[i]==0 && able[i]){
+                    que.add(new int[] {i,time[i]});
+                    cnt[i] = -1;
+                }
+            }
+
+            int[] max = new int[N+1];
+            while(!que.isEmpty()){
+                int size = que.size();
+
+                while(size-->0){
+                    int[] curr = que.poll();
+                    if(!able[curr[0]]) continue ;
+//                    System.out.println(curr[0]+" "+curr[1]);
+
+                    if(curr[0]==find){
+                        if(max[find]==0) System.out.println(time[find]);
+                        else System.out.println(max[find]);
+                        continue out;
+                    }
+                    for(Node c = nodes[curr[0]]; c!=null; c=c.next){
+                        cnt[c.num]--;
+                        max[c.num] = Math.max(max[c.num], curr[1]+time[c.num]);
+                        if(cnt[c.num]==0){
+                            que.add(new int[] {c.num,max[c.num]});
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+}
