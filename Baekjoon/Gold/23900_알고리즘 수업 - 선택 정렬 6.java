@@ -28,6 +28,10 @@ public class Main {
             B[i] = Integer.parseInt(st.nextToken());
             if(arr[i] == B[i]) K++;
         }
+        if(N==K){
+            System.out.println(1);
+            return;
+        }
         Arrays.sort(arr);
         selection_sort(ori, arr, map);
 
